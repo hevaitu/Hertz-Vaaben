@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Prisberegner til indramning</title>
+    <link rel="stylesheet" href="src/styles.css">
+  </head>
+  <body data-public-mode="standard">
+    <main class="shell public-shell">
+      <section class="calculator public-calculator" aria-labelledby="title">
+        <div class="topbar">
+          <div>
+            <p class="eyebrow">Hertz & Vaaben</p>
+            <h1 id="title">Beregn pris på indramning</h1>
+          </div>
+        </div>
+
+        <div class="layout public-layout">
+          <form class="panel inputs" id="publicCalculatorForm">
+            <fieldset>
+              <legend>Ramme og mål</legend>
+              <div class="segmented frame-type-options" role="radiogroup" aria-label="Rammetype">
+                <label>
+                  <input id="standardFrame" type="radio" name="frameType" value="standard" checked>
+                  <span>Almindelig ramme</span>
+                </label>
+                <label>
+                  <input id="aquariumFrame" type="radio" name="frameType" value="aquarium">
+                  <span>Akvariumsramme</span>
+                </label>
+                <label>
+                  <input id="floatFrame" type="radio" name="frameType" value="float">
+                  <span>Svæveramme</span>
+                </label>
+              </div>
+
+              <label>
+                Størrelse på værket
+                <select id="sizePreset">
+                  <option value="">Generelle mål</option>
+                  <option value="14.8,21">A5 - 14,8 × 21 cm</option>
+                  <option value="21,29.7">A4 - 21 × 29,7 cm</option>
+                  <option value="29.7,42">A3 - 29,7 × 42 cm</option>
+                  <option value="42,59.4">A2 - 42 × 59,4 cm</option>
+                  <option value="59.4,84.1">A1 - 59,4 × 84,1 cm</option>
+                  <option value="84.1,118.9">A0 - 84,1 × 118,9 cm</option>
+                </select>
+              </label>
+
+              <div class="grid two">
+                <label>
+                  Bredde
+                  <input id="frameWidth" type="number" min="1" step="0.1" value="52">
+                  <span class="unit">cm</span>
+                </label>
+                <label>
+                  Højde
+                  <input id="frameHeight" type="number" min="1" step="0.1" value="62">
+                  <span class="unit">cm</span>
+                </label>
+              </div>
+
+              <label>
+                Antal
+                <input id="quantity" type="number" min="1" step="1" value="1">
+                <span class="unit">stk.</span>
+              </label>
+            </fieldset>
+
+            <fieldset>
+              <legend>Valg</legend>
+              <label class="standard-choice aquarium-choice">
+                Farve / materiale
+                <select id="frameProfile"></select>
+              </label>
+              <label class="float-choice">
+                Farve / materiale
+                <select id="floatProfile"></select>
+              </label>
+              <label class="standard-choice aquarium-choice">
+                Glas
+                <select id="glassType"></select>
+              </label>
+              <label class="toggle standard-choice aquarium-choice">
+                <input id="usePassepartout" type="checkbox">
+                <span>Passepartout</span>
+              </label>
+            </fieldset>
+          </form>
+
+          <aside class="panel result public-result" aria-live="polite">
+            <div class="price-card">
+              <span>Estimeret pris inkl. moms</span>
+              <strong id="totalIncVat">0 kr.</strong>
+              <small>Ikke en endelig pris</small>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <script src="src/main.js"></script>
+  </body>
+</html>

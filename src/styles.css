@@ -1,0 +1,265 @@
+:root {
+  color-scheme: light;
+  --ink: #1f2523;
+  --muted: #66706b;
+  --line: #d8ded9;
+  --paper: #f6f4ef;
+  --panel: #ffffff;
+  --accent: #2f6f5e;
+  --accent-dark: #1f4e43;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background:
+    linear-gradient(180deg, rgba(47, 111, 94, 0.08), rgba(246, 244, 239, 0) 320px),
+    var(--paper);
+  color: var(--ink);
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+.shell {
+  width: min(980px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 28px 0 48px;
+}
+
+.calculator,
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.calculator {
+  padding: 24px;
+  box-shadow: 0 18px 50px rgba(31, 37, 35, 0.08);
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.eyebrow {
+  margin: 0 0 4px;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 750;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(1.65rem, 4vw, 3rem);
+  line-height: 1.05;
+  letter-spacing: 0;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.55fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.panel {
+  padding: 18px;
+}
+
+form {
+  display: grid;
+  gap: 18px;
+}
+
+fieldset {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px;
+  display: grid;
+  gap: 14px;
+}
+
+legend {
+  padding: 0 6px;
+  color: var(--accent-dark);
+  font-weight: 750;
+}
+
+.grid {
+  display: grid;
+  gap: 12px;
+}
+
+.two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 650;
+  position: relative;
+}
+
+.unit {
+  position: absolute;
+  right: 12px;
+  bottom: 11px;
+  color: var(--muted);
+  font-size: 0.84rem;
+  pointer-events: none;
+}
+
+input,
+select {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fbfcfa;
+  color: var(--ink);
+  min-height: 42px;
+  padding: 9px 42px 9px 10px;
+}
+
+select {
+  appearance: auto;
+  cursor: pointer;
+  padding-right: 32px;
+}
+
+input:focus,
+select:focus {
+  outline: 3px solid rgba(47, 111, 94, 0.2);
+  border-color: var(--accent);
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+}
+
+.toggle input {
+  width: 18px;
+  min-height: 18px;
+  accent-color: var(--accent);
+}
+
+.segmented {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  background: #eef2ef;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 4px;
+}
+
+.segmented label {
+  display: block;
+}
+
+.segmented input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.segmented span {
+  display: flex;
+  position: static;
+  min-height: 38px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  color: var(--muted);
+  font-weight: 750;
+  text-align: center;
+}
+
+.segmented input:checked + span {
+  background: #fff;
+  color: var(--accent-dark);
+  box-shadow: 0 1px 2px rgba(31, 37, 35, 0.08);
+}
+
+.public-result {
+  position: sticky;
+  top: 18px;
+}
+
+.price-card {
+  background: var(--accent-dark);
+  color: #fff;
+  border-radius: 8px;
+  padding: 18px;
+  display: grid;
+  gap: 4px;
+  min-height: 176px;
+  align-content: center;
+}
+
+.price-card span {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.price-card strong {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  line-height: 1;
+}
+
+body[data-public-mode="standard"] .float-choice,
+body[data-public-mode="aquarium"] .float-choice,
+body[data-public-mode="float"] .standard-choice,
+body[data-public-mode="float"] .aquarium-choice {
+  display: none;
+}
+
+@media (max-width: 860px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .public-result {
+    position: static;
+  }
+}
+
+@media (max-width: 620px) {
+  .shell {
+    width: min(100% - 20px, 980px);
+    padding-top: 10px;
+  }
+
+  .calculator,
+  .panel {
+    padding: 14px;
+  }
+
+  .topbar {
+    align-items: flex-start;
+  }
+
+  .two,
+  .segmented {
+    grid-template-columns: 1fr;
+  }
+}
