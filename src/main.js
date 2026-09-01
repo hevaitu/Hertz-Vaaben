@@ -18,7 +18,7 @@ const publicData = {
   ],
   floatFrames: [
     { id: "1685-11", name: "Svæveliste sort mat", price: 58 },
-    { id: "1247-115", name: "Svæveliste ege finer", price: 202 }
+    { id: "1247-115", name: "Svæveliste ege finer (til dybe lærreder)", price: 202 }
   ],
   glass: [
     { id: "2-FL", name: "2 mm float glas", price: 105 },
