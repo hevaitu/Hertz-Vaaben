@@ -118,6 +118,13 @@ label {
   position: relative;
 }
 
+.field-note {
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
 .unit {
   position: absolute;
   right: 12px;
